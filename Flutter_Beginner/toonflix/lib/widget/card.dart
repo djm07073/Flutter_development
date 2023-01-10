@@ -16,7 +16,7 @@ class CurrencyCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Container(
+    return Container(
       clipBehavior: Clip.hardEdge, //짤라내기
       decoration: BoxDecoration(
         color: isInverted ? Colors.white : const Color(0xFF1F2123),
@@ -78,6 +78,5 @@ class CurrencyCard extends StatelessWidget {
         ),
       ),
     );
-    throw UnimplementedError();
   }
 }

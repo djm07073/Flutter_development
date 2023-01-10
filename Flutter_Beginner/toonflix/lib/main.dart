@@ -3,7 +3,7 @@ import 'package:toonflix/widget/button.dart';
 import 'package:toonflix/widget/card.dart';
 
 void main() {
-  runApp(App());
+  runApp(const App3());
 }
 
 class App extends StatelessWidget {
@@ -143,5 +143,110 @@ class App extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class App2 extends StatefulWidget {
+  const App2({super.key});
+
+  @override
+  State<App2> createState() => _App2State();
+}
+
+class _App2State extends State<App2> {
+  //int counter = 0;
+  List<int> numbers = [];
+  void plusClicked() {
+    setState(() {
+      //가독성을 위해 데이터가 변하는 것을 안에 넣어 작성
+      //fresh UI ,data가 변했음을 알림.
+      //counter = counter + 1;
+      numbers.add(numbers.length);
+    });
+  }
+
+  // void removeClicked() {
+  //   setState(() {
+  //     //fresh UI
+  //     if (counter > 0) {
+  //       counter = counter - 1;
+  //     }
+  //   });
+  // }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: const Color(0xFFF4EDDB),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text(
+                // 'Click Count',
+                'My Large Title',
+                style: TextStyle(fontSize: 30),
+              ),
+              // Text(
+              //   // '$counter',
+              //   // style: const TextStyle(fontSize: 30),
+
+              // ),
+              // for (var n in numbers) Text('$n'),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: [
+              //     IconButton(
+              //       iconSize: 40,
+              //       onPressed: plusClicked,
+              //       icon: const Icon(Icons.add_box_rounded),
+              //     ),
+              //     IconButton(
+              //       iconSize: 40,
+              //       onPressed: removeClicked,
+              //       icon: const Icon(
+              //         Icons.indeterminate_check_box_rounded,
+              //       ),
+              //     )
+              // ],
+              //)
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class App3 extends StatefulWidget {
+  const App3({super.key});
+
+  @override
+  State<App3> createState() => _App3State();
+}
+
+class _App3State extends State<App3> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        textTheme: const TextTheme(
+          titleLarge:  TextStyle(color: Colors.red,)
+        ),
+      ),
+      home: Scaffold(backgroundColor: const Color(0xFFF4EDDB),
+      body:Center(child: Column(mainAxisAlignment: MainAxisAlignment.center,children:const [MyLargeTitle(),]),))
+      );
+  }
+}
+
+class MyLargeTitle extends StatelessWidget {
+  const MyLargeTitle({Key?:key,}):super(key:key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Text('My Large Title',
+    style:TextStyle(fontSize:30),);
   }
 }
